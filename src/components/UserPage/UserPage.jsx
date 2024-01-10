@@ -9,6 +9,7 @@ function UserPage() {
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
+      <h3>Games that you add or others add will go here for you to join. Will only be able to edit games you created.</h3>
       <LogOutButton className="btn" />
     </div>
   );

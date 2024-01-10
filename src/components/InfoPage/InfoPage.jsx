@@ -8,7 +8,17 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Info Page</p>
+      <h2>Add a Game!</h2>
+      {/* <form onSubmit={addGame}>
+        Location:{""}
+        Date:{""}
+        Time:{""}
+        <input
+        type="text"
+        value={gameName}
+        onChange={(e) => setGameName(e.target.value)}
+        />
+      </form> */}
     </div>
   );
 }
