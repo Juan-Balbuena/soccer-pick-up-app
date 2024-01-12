@@ -6,7 +6,13 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  // GET route code here
+  console.log('GET /api/game');
+  pool.query('SELECT * FROM "game" WHERE "user_id" = $1 ;', [req.user.id]).then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    console.log('Error Get /api/game', error)
+    res.sendStatus(500);
+  })
 });
 
 /**

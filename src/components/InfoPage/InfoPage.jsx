@@ -9,16 +9,7 @@ function InfoPage() {
   return (
     <div className="container">
       <h2>Add a Game!</h2>
-      {/* <form onSubmit={addGame}>
-        Location:{""}
-        Date:{""}
-        Time:{""}
-        <input
-        type="text"
-        value={gameName}
-        onChange={(e) => setGameName(e.target.value)}
-        />
-      </form> */}
+      
     </div>
   );
 }
