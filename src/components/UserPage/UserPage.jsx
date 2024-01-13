@@ -23,9 +23,9 @@ function UserPage() {
         {sample.map(sample => {
           return (
             <div key={sample.id}>
-              <h3>{sample.created_by}</h3>
-              <h3>{sample.location}</h3>
-              <h3>{sample.date}</h3>
+              <h3>Created By: {sample.created_by}<br/>
+              Location: {sample.location}<br />
+              Date: {sample.date}</h3>
             </div>
           )
         })}
