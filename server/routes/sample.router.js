@@ -6,20 +6,15 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-  console.log('GET /api/game');
-  pool.query('SELECT * FROM "game" WHERE "user_id" = $1 ;', [req.user.id]).then((result) => {
+  console.log('GET /api/sample');
+  pool.query('SELECT * FROM "sample" WHERE "user_id" = $1 ;', [req.user.id]).then((result) => {
     res.send(result.rows);
   }).catch((error) => {
-    console.log('Error Get /api/game', error)
+    console.log('Error Get /api/sample', error)
     res.sendStatus(500);
   })
 });
 
-/**
- * POST route template
- */
-router.post('/', (req, res) => {
-  // POST route code here
-});
+
 
 module.exports = router;

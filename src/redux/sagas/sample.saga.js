@@ -3,7 +3,7 @@ import axios from "axios";
 
 function* fetchSample() {
     try {
-        const sample = yield axios.get('/api/game');
+        const sample = yield axios.get('/api/sample');
         console.log('get all:', sample.data);
         yield put({ type: 'SET_SAMPLE', payload: sample.data});
     } catch (error) {
