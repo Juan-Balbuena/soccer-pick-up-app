@@ -6,7 +6,7 @@ const router = express.Router();
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/game', (req, res) => {
     const newGame = req.body;
     const queryText = `INSERT INTO "game" ("created_by", "location", "date")
                         VALUES ($1, $2, $3)`;
