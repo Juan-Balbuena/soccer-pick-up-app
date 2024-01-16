@@ -1,19 +1,17 @@
 import { takeLatest, put } from "redux-saga/effects";
 import axios from "axios";
 
-function* fetchGame(){
+function* addGame(action){
     try {
-        yield axios.post('/api/game')
-        const addGame = yield axios.get('/api/game')
-        console.log('get all:', addGame.data);
-        yield put({ type: 'SET_GAME', payload: addGame.data});
+        yield axios.post('/api/game', action.payload)
+        yield put({ type: 'FETCH_GAMES' });
     } catch (error) {
-        console.log('error in fetchGame function', error);
+        console.log('error in addGame function', error);
     }
 }
 
 function* addGameSaga(){
-    yield takeLatest('FETCH_GAME', fetchGame)
+    yield takeLatest('ADD_GAME', addGame)
 }
 
 export default addGameSaga;

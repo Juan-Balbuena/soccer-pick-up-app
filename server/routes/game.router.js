@@ -18,13 +18,15 @@ router.get('/', (req, res) => {
  * POST route template
  */
 router.post('/', (req, res) => {
+    console.log('in POST', req.body)
     const newGame = req.body;
-    const queryText = `INSERT INTO "game" ("created_by", "location", "date")
-                        VALUES ($1, $2, $3)`;
+    const queryText = `INSERT INTO "game" ("user_id", "created_by", "location", "date")
+                        VALUES ($1, $2, $3, $4)`;
     const queryValues = [
-      newGame.created_by,
-      newGame.location,
-      newGame.date,
+        req.user.id,
+        newGame.created_by,
+        newGame.location,
+        newGame.date,
     ];
     pool.query(queryText, queryValues)
       .then(() => { res.sendStatus(201); })
