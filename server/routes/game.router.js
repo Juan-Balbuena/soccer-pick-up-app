@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
-router.get('/game', (req, res) => {
+router.get('/', (req, res) => {
     console.log('GET /api/game');
     pool.query('SELECT * FROM "game" WHERE "user_id" = $1 ;', [req.user.id]).then((result) => {
         res.send(result.rows);
@@ -17,7 +17,7 @@ router.get('/game', (req, res) => {
 /**
  * POST route template
  */
-router.post('/game', (req, res) => {
+router.post('/', (req, res) => {
     const newGame = req.body;
     const queryText = `INSERT INTO "game" ("created_by", "location", "date")
                         VALUES ($1, $2, $3)`;

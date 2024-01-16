@@ -1,10 +1,10 @@
-const sample = (state = [], action) => {
+const games = (state = [], action) => {
     switch (action.type) {
-        case 'SET_SAMPLE':
+        case 'SET_GAMES':
             return action.payload;
             default:
                 return state;
     }
 }
 
-export default sample;
+export default games;

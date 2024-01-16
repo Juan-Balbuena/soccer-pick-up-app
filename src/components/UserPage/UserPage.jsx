@@ -11,10 +11,10 @@ function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  const sample = useSelector((store) => store.sample);
+  const games = useSelector((store) => store.games);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_SAMPLE'})
+    dispatch({ type: 'FETCH_GAMES'})
   }, []);
 
   return (
@@ -26,28 +26,31 @@ function UserPage() {
       <br />
       <section className='sample'>
       <Grid container spacing={3}> 
-      <Paper elevation={3}>
+      {games.map(game => {
+          return (
+      <Grid item xs={12}>
+
       <Card>
         <CardContent> 
           <>
-        {sample.map(sample => {
-          return (
-            <div key={sample.id}>
-              <Typography sx={{ fontWeight: 'bold' }}>Created By: {sample.created_by}<br/>
-              Location: {sample.location}<br/>
-              Date: {sample.date}</Typography>
+        
+            <div key={game.id}>
+              <Typography sx={{ fontWeight: 'bold' }}>Created By: {game.created_by}<br/>
+              Location: {game.location}<br/>
+              Date: {game.date}</Typography>
             </div>
             
-          )
-        })}
+          
          </>
          </CardContent> 
         </Card>
-        </Paper>
+        </Grid>
+        )
+      })}
         </Grid> 
       </section>
       <>
-      <GameItem />
+      {/* <GameItem /> */}
       </>
       <h3>Games that you add or others add will go here for you to join. Will only be able to edit games you created.</h3>
       <LogOutButton className="btn" />
