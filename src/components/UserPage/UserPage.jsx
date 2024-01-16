@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Card, CardContent, Typography, Paper, Grid } from '@mui/material';
-
+import GameItem from '../GameItem/GameItem';
 
 
 function UserPage() {
@@ -46,7 +46,9 @@ function UserPage() {
         </Paper>
         </Grid> 
       </section>
-      
+      <>
+      <GameItem />
+      </>
       <h3>Games that you add or others add will go here for you to join. Will only be able to edit games you created.</h3>
       <LogOutButton className="btn" />
     </div>

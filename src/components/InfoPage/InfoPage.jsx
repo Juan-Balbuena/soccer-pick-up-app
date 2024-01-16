@@ -22,7 +22,7 @@ function InfoPage() {
   const handleClick = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'SAGA/ADD_GAME',
+      type: 'FETCH_GAME',
       payload: {
         created_by: created_by,
         location: location,

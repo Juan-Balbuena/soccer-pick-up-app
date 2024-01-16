@@ -5,6 +5,7 @@ function* fetchGame(){
     try {
         const addGame = yield axios.post('/api/game')
         console.log('get all:', addGame.data);
+        yield put({ type: 'SET_GAME', payload: addGame.data});
     } catch (error) {
         console.log('error in fetchGame function', error);
     }
