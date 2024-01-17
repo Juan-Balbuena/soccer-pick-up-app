@@ -6,7 +6,7 @@ import { Card, CardContent, Typography, Paper, Grid } from '@mui/material';
 
 
 
-function GameItem(){
+function MyGames(){
     const dispatch = useDispatch();
     const addGame = useSelector((store) => store.addGame);
 
@@ -46,4 +46,4 @@ function GameItem(){
 
 
 
-export default GameItem;
+export default MyGames;

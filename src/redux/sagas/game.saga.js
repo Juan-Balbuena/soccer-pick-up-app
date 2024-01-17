@@ -21,9 +21,20 @@ function* removeGame(action){
     };
 };
 
+function* editGame(action){
+    try{
+        yield axios.put(`/api/game/${action.payload}`);
+        yield put({type: 'FETCH_GAMES'});
+    } catch(error){
+        console.log('error in put route', error);
+        alert('Something went wrong');
+    };
+};
+
 function* gameSaga(){
     yield takeLatest('FETCH_GAMES', fetchGames);
     yield takeLatest('REMOVE_GAME', removeGame);
+    yield takeLatest('EDIT_GAME', editGame)
 }
 
 export default gameSaga;

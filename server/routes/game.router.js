@@ -37,9 +37,21 @@ router.post('/', (req, res) => {
   });
 
   router.put('/:id', (req, res) => {
-    console.log(req.body);
-    let queryText = `UPDATE "game" WHERE id = $1; `;
-    pool.query(queryText, [req.params.id])
+    const editGame = req.body;
+    const gameId = req.params.id;
+
+    const queryText = `UPDATE "game" 
+                        WHERE "user_id" = $1
+                        SET "created_by" = $2,
+                        "location" = $3,
+                        "date" = $4`;
+    const queryValues = [
+        req.user.id,
+        editGame.created_by,
+        editGame.location,
+        editGame.date,
+    ];
+    pool.query(queryText, queryValues)
     .then(() => {res.sendStatus(201)})
     .catch((e) => {
         console.error('error in PUT router', e)

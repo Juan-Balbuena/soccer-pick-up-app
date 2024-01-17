@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Card, CardContent, Typography, Paper, Grid, Button } from '@mui/material';
-import GameItem from '../GameItem/GameItem';
+
 
 
 function UserPage() {
@@ -20,6 +20,10 @@ function UserPage() {
 
   const removeGame = (id) => {
     dispatch({ type: 'REMOVE_GAME', payload: id});
+  }
+
+  const editGame = (id) => {
+    dispatch({ type: 'EDIT_GAME', payload: id});
   }
 
   return (
@@ -44,8 +48,10 @@ function UserPage() {
               Location: {game.location}<br/>
               Date: {game.date}</Typography>
             </div>
-            <Button variant="contained" color="error" onClick={() => removeGame(game.id)}>Delete</Button>
-            <Button variant="contained" color="primary">Edit</Button>
+            <Button variant="contained" color="success">JOIN</Button>
+            <Button variant="outlined" color="primary" onClick={() => editGame(game.id)}>EDIT</Button>
+            <Button variant="outlined" color="error" onClick={() => removeGame(game.id)}>DELETE</Button>
+            
          </>
          </CardContent> 
         </Card>
@@ -55,7 +61,6 @@ function UserPage() {
         </Grid> 
       </section>
       <>
-      {/* <GameItem /> */}
       </>
       <h3>Games that you add or others add will go here for you to join. Will only be able to edit games you created.</h3>
       <LogOutButton className="btn" />
