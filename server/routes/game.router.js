@@ -36,6 +36,28 @@ router.post('/', (req, res) => {
       });                    
   });
 
+  router.put('/:id', (req, res) => {
+    console.log(req.body);
+    let queryText = `UPDATE "game" WHERE id = $1; `;
+    pool.query(queryText, [req.params.id])
+    .then(() => {res.sendStatus(201)})
+    .catch((e) => {
+        console.error('error in PUT router', e)
+        res.sendStatus(500);
+    })
+  })
+
+  router.delete('/:id', (req, res) => {
+    console.log(req.body);
+    let queryText = `DELETE FROM "game" WHERE id = $1;`;
+    pool.query(queryText, [req.params.id])
+    .then(() => {res.sendStatus(201)})
+    .catch((e) => {
+        console.error('error in delete router', e)
+        res.sendStatus(500);
+    })
+  })
+
 
 
 module.exports = router;

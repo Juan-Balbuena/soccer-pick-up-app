@@ -11,8 +11,19 @@ function* fetchGames() {
     }
 }
 
+function* removeGame(action){
+    try {
+        yield axios.delete(`/api/game/${action.payload}`);
+        yield put({type: 'FETCH_GAMES'});
+    } catch(error){
+        console.log('error in deleting route', error);
+        alert('Something went wrong');
+    };
+};
+
 function* gameSaga(){
     yield takeLatest('FETCH_GAMES', fetchGames);
+    yield takeLatest('REMOVE_GAME', removeGame);
 }
 
 export default gameSaga;
