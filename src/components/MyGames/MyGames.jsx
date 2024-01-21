@@ -9,36 +9,13 @@ import { Card, CardContent, Typography, Paper, Grid } from '@mui/material';
 function MyGames(){
     const dispatch = useDispatch();
     const addGame = useSelector((store) => store.addGame);
-
+    console.log('hello world', addGame);
     useEffect(() => {
         dispatch({ type: 'FETCH_GAME'})
     }, []);
 
     return(
-    <>
-    <section className='addGame'>
-      <Grid container spacing={3}> 
-      <Paper elevation={3}>
-      <Card>
-        <CardContent> 
-          <>
-        {addGame.map(addGame => {
-          return (
-            <div key={addGame.id}>
-              <Typography sx={{ fontWeight: 'bold' }}>Created By: {addGame.created_by}<br/>
-              Location: {addGame.location}<br/>
-              Date: {addGame.date}</Typography>
-            </div>
-            
-          )
-        })}
-         </>
-         </CardContent> 
-        </Card>
-        </Paper>
-        </Grid> 
-      </section>
-      </>
+      <h1>hello world</h1>
     )
 }
 

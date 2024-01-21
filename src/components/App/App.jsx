@@ -20,7 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import MyGames from '../MyGames/MyGames';
-
+import EditGames from '../EditGames/EditGames';
 import './App.css';
 
 function App() {
@@ -75,6 +75,12 @@ function App() {
               <MyGames />
             </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/mygames/edit/:id"  
+            >
+              <EditGames />
+            </ProtectedRoute>
           <Route
             exact
             path="/login"

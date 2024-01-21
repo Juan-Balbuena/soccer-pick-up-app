@@ -4,14 +4,25 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-    console.log('GET /api/game');
+    console.log('GET /api/game hello');
     pool.query('SELECT * FROM "game" WHERE "user_id" = $1 ;', [req.user.id]).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
         console.log('Error GET /api/game', error)
         res.sendStatus(500);
-    }) 
+    })
 });
+
+router.get('/:id', (req, res) => {
+    console.log('GET /api/game/:id');
+    pool.query('SELECT * FROM "game" WHERE "user_id" = $1 and "id" = $2;', [req.user.id, req.params.id]).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('Error GET /api/game', error)
+        res.sendStatus(500);
+    })
+});
+
 
 
 /**
@@ -29,22 +40,23 @@ router.post('/', (req, res) => {
         newGame.date,
     ];
     pool.query(queryText, queryValues)
-      .then(() => { res.sendStatus(201); })
-      .catch((err) => {
-        console.log('Error in completeing SELECT game query', err);
-        res.sendStatus(500);
-      });                    
-  });
+        .then(() => { res.sendStatus(201); })
+        .catch((err) => {
+            console.log('Error in completeing SELECT game query', err);
+            res.sendStatus(500);
+        });
+});
 
-  router.put('/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     const editGame = req.body;
+    console.log(editGame);
     const gameId = req.params.id;
-
+    console.log('in PUT route', editGame, gameId);
     const queryText = `UPDATE "game" 
-                        WHERE "user_id" = $1
-                        SET "created_by" = $2,
+                       SET "created_by" = $2,
                         "location" = $3,
-                        "date" = $4`;
+                        "date" = $4
+                        WHERE "user_id" = $1; `;
     const queryValues = [
         req.user.id,
         editGame.created_by,
@@ -52,23 +64,23 @@ router.post('/', (req, res) => {
         editGame.date,
     ];
     pool.query(queryText, queryValues)
-    .then(() => {res.sendStatus(201)})
-    .catch((e) => {
-        console.error('error in PUT router', e)
-        res.sendStatus(500);
-    })
-  })
+        .then(() => { res.sendStatus(201) })
+        .catch((e) => {
+            console.error('error in PUT router', e)
+            res.sendStatus(500);
+        })
+})
 
-  router.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log(req.body);
     let queryText = `DELETE FROM "game" WHERE id = $1;`;
     pool.query(queryText, [req.params.id])
-    .then(() => {res.sendStatus(201)})
-    .catch((e) => {
-        console.error('error in delete router', e)
-        res.sendStatus(500);
-    })
-  })
+        .then(() => { res.sendStatus(201) })
+        .catch((e) => {
+            console.error('error in delete router', e)
+            res.sendStatus(500);
+        })
+})
 
 
 
