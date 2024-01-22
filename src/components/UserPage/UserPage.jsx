@@ -26,6 +26,7 @@ function UserPage() {
   }
 
   const editGame = (id) => {
+    console.log('asdfghjkl', id);
     history.push(`/mygames/edit/${id}`)
     // dispatch({ type: 'EDIT_GAME'});
   }

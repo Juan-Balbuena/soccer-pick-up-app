@@ -49,15 +49,16 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     const editGame = req.body;
-    console.log(editGame);
+    console.log('editGame', editGame);
     const gameId = req.params.id;
     console.log('in PUT route', editGame, gameId);
     const queryText = `UPDATE "game" 
-                       SET "created_by" = $2,
-                        "location" = $3,
-                        "date" = $4
-                        WHERE "user_id" = $1; `;
+                       SET "user_id" = $2, "created_by" = $3,
+                        "location" = $4,
+                        "date" = $5
+                        WHERE "id" = $1; `;
     const queryValues = [
+        editGame.id,
         req.user.id,
         editGame.created_by,
         editGame.location,

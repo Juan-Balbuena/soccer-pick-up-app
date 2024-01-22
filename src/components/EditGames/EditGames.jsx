@@ -46,8 +46,8 @@ function EditGameForm(){
         dispatch({
             type: 'FINAL_EDIT',
             payload: {
-                id: game.id,
-                createdBy: createdBy,
+                id: id,
+                created_by: createdBy,
                 location: location,
                 date: date,
             }

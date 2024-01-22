@@ -24,8 +24,8 @@ function* removeGame(action){
 function* editGame(action){
     try{
         const editedGame = action.payload
-
-        yield axios.put(`/api/game/${editedGame.id}`);
+        console.log(editedGame);
+        yield axios.put(`/api/game/${editedGame.id}`, editedGame);
         yield put({type: 'FETCH_GAMES', payload: editedGame});
     } catch(error){
         console.log('error in put route', error);
