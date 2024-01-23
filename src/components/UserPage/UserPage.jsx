@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Card, CardContent, Typography, Paper, Grid, Button } from '@mui/material';
 import './UserPage.css'
-
+import EditIcon from '@mui/icons-material/Edit';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -43,7 +43,20 @@ function UserPage() {
             {games.map(game => {
               return (
                 <Grid item xs={12}>
-
+                  
+                  <Card>
+                    <CardContent>
+                    <>
+                  <div>
+                        <Typography sx={{ fontWeight: 'bold' }}>Created By: Gabe<br />
+                            Location: Concordia University Dome<br />
+                            Date: 2024-02-10</Typography>
+                            <Button variant="outlined" color="success">JOIN</Button>
+                        </div>
+                        </>  
+                      </CardContent>
+                  </Card>
+                  <br />
                   <Card>
                     <CardContent>
                       <>
@@ -53,12 +66,16 @@ function UserPage() {
                             Location: {game.location}<br />
                             Date: {game.date}</Typography>
                         </div>
-                        <Button variant="contained" color="success" onClick={() => editGame()}>JOIN</Button>
+
+                       
+                        {/* <Button variant="outlined" color="success" onClick={() => editGame()}>JOIN</Button> */}
+                        
                         {
                           user.id == game.user_id && (
                             <>
-                              <Button variant="outlined" color="primary" onClick={() => editGame(game.id)}>EDIT</Button>
                               <Button variant="outlined" color="error" onClick={() => removeGame(game.id)}>DELETE</Button>
+                              <Button variant="contained" color="inherit" onClick={() => editGame(game.id)} startIcon={<EditIcon />}></Button>
+
                             </>
 
                           )
@@ -68,6 +85,34 @@ function UserPage() {
                       </>
                     </CardContent>
                   </Card>
+                  <br/>
+                 
+                  <Card>
+                    <CardContent>
+                    <>
+                  <div>
+                        <Typography sx={{ fontWeight: 'bold' }}>Created By: Alvin<br />
+                            Location: Holy Angels Dome<br />
+                            Date: 2024-01-23</Typography>
+                            <Button variant="outlined" color="success">JOIN</Button>
+                        </div>
+                        </>  
+                      </CardContent>
+                  </Card>
+                  <br />
+                  <Card>
+                    <CardContent>
+                    <>
+                  <div>
+                        <Typography sx={{ fontWeight: 'bold' }}>Created By: Megan<br />
+                            Location: Park Center Dome<br />
+                            Date: 2024-02-14</Typography>
+                            <Button variant="outlined" color="success">JOIN</Button>
+                        </div>
+                        </>  
+                      </CardContent>
+                  </Card>
+                      
                 </Grid>
               )
             })}

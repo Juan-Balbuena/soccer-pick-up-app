@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     console.log('GET /api/game hello');
-    pool.query('SELECT * FROM "game" WHERE "user_id" = $1 ;', [req.user.id]).then((result) => {
+    pool.query('SELECT * FROM "game" WHERE "user_id" = $1 ORDER BY "id" DESC;', [req.user.id]).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
         console.log('Error GET /api/game', error)

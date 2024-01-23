@@ -69,7 +69,7 @@ function InfoPage() {
     </form>
 
     <div>
-      <Button color='success' onClick={handleClick} variant='contained' startIcon={<AddCircleIcon />}>Add Game</Button>
+      <Button color='inherit' onClick={handleClick} variant='contained' startIcon={<AddCircleIcon />}>Add Game</Button>
     </div>
     </>
   );

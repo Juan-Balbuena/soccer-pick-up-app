@@ -95,8 +95,8 @@ function EditGameForm(){
                 </div>
             </form>
             <div className='buttonContainer'>
-                <Button onClick={backButton} variant='contained' startIcon={<ArrowBackIosIcon />}>Back</Button>
-                <Button className='right' onClick={editGame} variant='contained' startIcon={<SaveIcon />}>Save</Button>
+                <Button onClick={backButton} variant='contained' color="inherit" startIcon={<ArrowBackIosIcon />}>Back</Button>
+                <Button className='right' onClick={editGame} variant='contained' color="inherit" startIcon={<SaveIcon />}>Save</Button>
             </div>
         </Container>
         
