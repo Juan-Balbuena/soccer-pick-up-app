@@ -5,7 +5,7 @@
   align-items: center;
 
   margin: 0 0 30px;
-  background-color: silver;
+  background-color: #d3d0cbff;
   overflow: hidden;
 }
 
@@ -16,7 +16,7 @@
 .nav-title {
   font-size: 24px;
   font-weight: 700;
-  color: black;
+  color: #2e5266ff;
   padding-left: 10px;
   margin: 0;
 }
@@ -24,7 +24,7 @@
 .navLink {
   display: inline-block;
   color: white;
-  background-color: silver;
+  background-color: #d3d0cbff;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -38,5 +38,5 @@
 }
 
 .navLink:hover {
-  background-color: skyblue;
+  background-color: #6e8898ff;
 }

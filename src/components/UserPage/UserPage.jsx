@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Card, CardContent, Typography, Paper, Grid, Button } from '@mui/material';
-
+import './UserPage.css'
 
 
 function UserPage() {
@@ -35,7 +35,7 @@ function UserPage() {
     <>
       <div className="container">
         <h2>Welcome, {user.username}!</h2>
-        <p>Your ID is: {user.id}</p>
+        {/* <p>Your ID is: {user.id}</p> */}
         <br />
         <br />
         <section className='sample'>
@@ -74,8 +74,8 @@ function UserPage() {
           </Grid>
         </section>
         <>
-        </>
-        <h3>Games that you add or others add will go here for you to join. Will only be able to edit games you created.</h3>
+        </> 
+        <br />
         <LogOutButton className="btn" />
       </div>
 

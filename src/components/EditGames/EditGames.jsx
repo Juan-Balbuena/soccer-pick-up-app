@@ -63,6 +63,16 @@ function EditGameForm(){
             </div>
             <form>
                 <div>
+                    <label>Created By:
+                       <input
+                       type='text'
+                       value={createdBy} 
+                       onChange={(event) => {
+                        setCreatedBy(event.target.value)}
+                       }
+                       />
+                    </label>
+                    <br />
                     <label>Location:
                         <input
                         type='text'

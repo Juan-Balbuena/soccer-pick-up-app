@@ -15,7 +15,7 @@ function MyGames(){
     }, []);
 
     return(
-      <h1>hello world</h1>
+      <h1>Upcoming Games:</h1>
     )
 }
 
